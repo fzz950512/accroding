@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			body{margin: 50px;}
+			.acc1{width: 300px;}
+			.a_title{height: 35px;text-align: center;line-height: 35px;border: 1px solid #333;}
+			.active{background-color: #780;}
+			.a_con{height: 0px;overflow: hidden;transition: all 0.5s ease;border: none;}
+			.a_con.heid{height: 300px;border: 1px solid indigo;}
+		</style>
+		<script type="text/javascript" src="jquery-1.4.2.min.js">
+			
+		</script>
+		<script>
+//			window.onload=init;
+//			function init(){
+//				acc({
+//					show:"acc1",
+//					title:"a_title",
+//					con:"a_con",
+//					Default:0
+//				})
+//			}
+//			function acc(obj){
+//				var show=document.getElementsByClassName(obj.show)[0];
+//				var titles=show.getElementsByClassName(obj.title);
+//				var cons=show.getElementsByClassName(obj.con);
+//				var de=obj.Default;
+//				
+//				for(var i=0;i<titles.length;i++){
+//					if(i==de){
+//						titles[i].className=obj.title+" active";
+////						cons[i].style.display="block";
+//						
+//						cons[i].className=obj.con+" heid";
+//					}else{
+//						titles[i].className=obj.title;
+////						cons[i].style.display="none";
+//						cons[i].className=obj.con;
+//					}
+//					
+//				(function(){
+//					var j=i;
+//					titles[j].onclick=function(){
+//						if(de==j){
+//							return;
+//						}
+//						titles[j].className=obj.title+" active";
+////						cons[j].style.display="block";
+//						cons[j].className=obj.con+" heid";
+//						titles[de].className=obj.title;
+////						cons[de].style.display="none";
+//						cons[de].className=obj.con;
+//						de=j;
+//					}
+//				})()
+//				
+//				}
+//			}
+
+		$(function(){
+			$(".acc1 h2").click(function(){
+				var ind=$(".acc1 h2").index($(this));
+				$(".a_title.active").removeClass("active");
+				$(".a_con.heid").removeClass("heid");
+				$(".acc1 h2:eq("+ind+")").addClass("active");
+				$(".acc1 div:eq("+ind+")").addClass("heid");
+			})
+		})
+
+		</script>
+	</head>
+	<body>
+		<div class="acc1">
+			<h2 class="a_title active">标题1</h2>
+			<div class="a_con heid">内容</div>
+			<h2 class="a_title">标题2</h2>
+			<div class="a_con">内容2</div>
+			<h2 class="a_title">标题3</h2>
+			<div class="a_con">内容3</div>
+		</div>
+	</body>
+</html>
